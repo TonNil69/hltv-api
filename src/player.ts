@@ -28,7 +28,10 @@ export async function getPlayerById(id: number): Promise<IPlayer> {
   try {
     const body = await (
       await fetch(url, {
-        headers: { 'User-Agent': 'node-fetch' },
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+        },
       })
     ).text()
 
@@ -91,7 +94,7 @@ export async function getPlayerById(id: number): Promise<IPlayer> {
       10
     )
 
-    return {
+    const player = {
       id: Number(id),
       team: {
         id: teamId,
@@ -110,6 +113,10 @@ export async function getPlayerById(id: number): Promise<IPlayer> {
       headshots,
       mapsPlayed: maps || null,
     }
+
+    console.log(player)
+
+    return player
   } catch (error) {
     throw new Error(error as any)
   }

@@ -15,7 +15,10 @@ export default async function getRSS(type: 'news') {
   try {
     const xml = await (
       await fetch(url, {
-        headers: { 'User-Agent': 'node-fetch' },
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+        },
       })
     ).text()
     const parser = new xml2js.Parser()
