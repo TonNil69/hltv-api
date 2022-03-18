@@ -82,7 +82,7 @@ export async function getMatches() {
         teams: [team1, team2],
       }
 
-      matches[matches.length] = response
+      matches.push(response)
     })
 
     if (!matches.length) {
